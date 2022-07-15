@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+   <title>Super strona</title>
+
+   
+   
+</head>
+{% load static%}
+<link rel="stylesheet" href={% static 'style.css' %}/>
+
+<div id="container">
+<body><center>
+    <h1> Strona o nowotworach </h1>
+    <div class="topnav">
+        <a class="active" href="">Strona Główna</a>
+        <a href="/search">Filtrowanie danych</a>
+        <a href="/save">Wstaw dane do bazy</a>
+        
+      </div>
+
+
+
+
+
+    
+    
+    <hr/>
+ 
+    <table border ="3">
+        <tr>
+            <th>Id Chorego</th>
+            <th>Płeć</th>
+            <td>Wiek</td>
+            <td>BMI</td>
+            <td>Typ Nowotworu</td>
+            <td>Dawka</td>
+            <td>Środowisko</td>
+            
+            
+        </tr>
+        {% for datadisplay in sqlserverconn%} 
+        
+        <tr>
+            <td>{{datadisplay.ID_Chorego}}</td>
+            <td>{{datadisplay.Plec}}</td>
+            <td>{{datadisplay.Wiek}}</td>
+            <td>{{datadisplay.BMI}}</td>
+            <td>{{datadisplay.Typ_Nowotworu}}</td>
+            <td>{{datadisplay.Dawka}}</td>
+            <td>{{datadisplay.Nazwa}}</td>
+            
+        </tr>
+        {% endfor %}
+       
+    </table>
+</form>
+</center></body>
+</div>
+
+
+</html>

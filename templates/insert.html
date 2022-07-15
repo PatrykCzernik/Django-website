@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+   <title>Super strona</title>
+</head>
+{% load static%}
+<link rel="stylesheet" href={% static 'style.css' %}/>
+<body><center>
+    <h1> Wstaw dane do bazy </h1>
+    <div class="topnav">
+        <a class="active" href="http://127.0.0.1:8000/">Strona Główna</a>
+        <a href="/search">Filtrowanie danych</a>
+        
+        
+      </div>
+
+
+
+<hr/>
+<form method="POST">
+    {% csrf_token %}
+<table border=3>
+ <!--   <tr>
+        <td>id</td>
+        <td><input type="number" placeholder="Id .."  name="id"
+            min="1" max="125" required></td>
+    </tr> -->
+
+    <tr>
+        <td>Płeć</td>
+        <td><input type="text" placeholder="Płeć .." name="plec"></td>
+    </tr>
+
+    <tr>
+        <td>Wiek</td>
+        <td><input type="number" placeholder="Wiek .." name="wiek"
+            min="1" max="125"></td>
+    </tr>
+    <tr>
+        <td>Typ Nowotworu</td>
+        <td><input type="text" placeholder="Typ Nowotworu .." name="typ_nowotworu"></td>
+    </tr>
+
+    <tr>
+        <td>Id Środowiska</td>
+        <td><input type="number"placeholder="id .." name="id_srodowiska"
+            min="1" max="10"></td>
+    </tr>
+    <tr>
+        <td>BMI</td>
+        <td><input type="number" placeholder="BMI .."  name="bmi"
+            min="18" max="30"></td>
+    </tr>
+    <tr>
+        <td>Id promieniowania</td>
+        <td><input type="number" placeholder="id .." name="id_promieniowania"
+            min="1" max="10"></td>
+            </tr>
+            <tr>
+        <td>Id Nowotworu</td>
+        <td><input type="number" placeholder="id .." name="id_nowotworu"
+            min="1" max="10"></td>
+    </tr>
+
+
+</table>
+<hr/>
+<input type="submit" value="Wstaw dane" onclick="return alert('Operacja wstawiania rekordu zakończyła się powodzeniem!')"/>
+
+
+</form>
+
+</html>

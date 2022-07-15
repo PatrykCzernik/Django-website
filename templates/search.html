@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+   <title>Super strona</title>
+</head>
+{% load static%}
+<link rel="stylesheet" href={% static 'style.css' %}/>
+<body><center>
+    <h1> Wyszukiwarka </h1>
+    <div class="topnav">
+        <a class="active" href="http://127.0.0.1:8000/">Strona Główna</a>
+        <a href="/save">Wstaw dane do bazy</a>
+        
+        
+      </div>
+
+
+
+
+
+    
+    
+    <hr/>
+    <form method="POST">
+        {% csrf_token %}
+      
+        
+        <input type="radio" value='Rak płuca' name="typ_nowotworu"> Rak płuca |
+        <input type="radio" value="Rak brodawkowaty tarczycy" name="typ_nowotworu" > Rak brodawkowaty tarczycy
+        <input type="radio" value="Czerniak złośliwy" name="typ_nowotworu" > Czerniak złośliwy
+
+        <input type="submit" value="Szukaj"/>
+    <table border ="3">
+    <tr>
+            <th>Id Chorego</th>
+            <th>Płeć</th>
+            <td>Wiek</td>
+            <td>BMI</td>
+            <td>Typ Nowotworu</td>
+            <td>Dawka</td>
+            <td>Środowisko</td>
+            <td>Objawy</td>
+            
+    </tr> 
+        {% for datadisplay in sqlserverconn %} 
+        
+    <tr>
+            <td>{{datadisplay.ID_Chorego}}</td>
+            <td>{{datadisplay.Plec}}</td>
+            <td>{{datadisplay.Wiek}}</td>
+            <td>{{datadisplay.BMI}}</td>
+            <td>{{datadisplay.Typ_Nowotworu}}</td>
+            <td>{{datadisplay.Dawka}}</td>
+            <td>{{datadisplay.Nazwa}}</td>
+            <td>{{datadisplay.Objaw}}</td>
+           
+            
+    </tr>
+        {% endfor %} 
+       
+    </table>
+</form>
+</center></body>
+
+
+
+</html>
